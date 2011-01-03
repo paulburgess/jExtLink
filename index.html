@@ -52,6 +52,17 @@ var url = url.replace("www.", "");
 // Strip trailing slash
 var url = url.replace(/\/$/,"");
 
+// If url is very long, trim it
+var length = url.length;
+
+// Set length of url before trimming
+var limit = 30;
+
+if(length > limit){
+var url = url.substring(0,limit);
+var url = url + "...";
+}
+
 $(this).attr('title', "Visit " + url + "");
 
 });
@@ -75,7 +86,7 @@ a:hover {color:#F00}
 
 <body>
 
-<h1>Adding an external site link's home page title to the title attribute</h1>
+<h1>Enhancing external href titles, automatically</h1>
 
 <p>Ten years ago a crack commando unit was sent to <a href="http://www.google.co.uk/search?q=prison+by+a+military+court">prison by a military court</a> for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. <a rel="external" href="http://www.cloudflare.com/">If you have a problem</a> and no one else can help, and if you can find them, maybe you can hire the A-team.</p>
 
