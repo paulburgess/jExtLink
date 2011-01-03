@@ -38,21 +38,21 @@
 $(document).ready(function () {
 ////////////////////////////////////
 
+$('a[href^=http://]:not[href^=http://' + window.location.hostname + ']').attr('rel', 'external');
+
 // for each rel=external link
 $('a[rel="external"]').each(function() {
 
 var url = $(this).attr("href");
 
-// want to trim http:// & www. from var
-
+// Strip http:// & www. from var
 var url = url.replace("http://", "");
 var url = url.replace("www.", "");
 
+// Strip trailing slash
+var url = url.replace(/\/$/,"");
 
 $(this).attr('title', "Visit " + url + "");
-
-
-
 
 });
 
@@ -70,13 +70,6 @@ a {color:#C00;text-decoration: none;}
 a:hover {color:#F00}
 -->
 </style>
-
-<!--
-<link rel="stylesheet" href="css/grid.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
-<link rel="stylesheet" href="css/typography.css" type="text/css" media="screen" />
--->
-
 </head>
 
 
@@ -84,10 +77,10 @@ a:hover {color:#F00}
 
 <h1>Adding an external site link's home page title to the title attribute</h1>
 
-<p>Ten years ago a crack commando unit was sent to <a rel="external" href="http://www.84colors.com/">prison by a military court</a> for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. <a rel="external" href="http://www.cloudflare.com/">If you have a problem</a> and no one else can help, and if you can find them, maybe you can hire the A-team.</p>
+<p>Ten years ago a crack commando unit was sent to <a href="http://www.google.co.uk/search?q=prison+by+a+military+court">prison by a military court</a> for a crime they didn't commit. These men promptly escaped from a maximum security stockade to the Los Angeles underground. Today, still wanted by the government, they survive as soldiers of fortune. <a rel="external" href="http://www.cloudflare.com/">If you have a problem</a> and no one else can help, and if you can find them, maybe you can hire the A-team.</p>
 
 
-<p>Hey there where ya goin', not exactly knowin', who says you have to call just one place home. He's goin' everywhere, B.J. McKay and his best friend Bear. <a rel="external" href="http://wegraphics.net/">He just keeps on movin'</a>, ladies keep improvin', every day is better than the last. New dreams and better scenes, and best of all I don't pay property tax. Rollin' down to Dallas, who's providin' my palace, <a rel="extenal" href="http://www.premiumpixels.com/">off to New Orleans or who knows where</a>. Places new and ladies, too, I'm B.J. McKay and this is my best friend Bear.</p>
+<p>Hey there where ya goin', not exactly knowin', who says you have to call just one place home. He's goin' everywhere, B.J. McKay and his best friend Bear. <a rel="external" href="http://wegraphics.net/">He just keeps on movin'</a>, ladies keep improvin', every day is better than the last. New dreams and better scenes, and best of all I don't pay property tax. Rollin' down to Dallas, who's providin' my palace, <a href="http://www.premiumpixels.com/">off to New Orleans or who knows where</a>. Places new and ladies, too, I'm B.J. McKay and this is my best friend Bear.</p>
 
 
 </body>
