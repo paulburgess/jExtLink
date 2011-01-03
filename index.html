@@ -41,18 +41,17 @@ $(document).ready(function () {
 // for each rel=external link
 $('a[rel="external"]').each(function() {
 
-var uri = $(this).attr("href");
-
-  
-$.getJSON("http://www.metauri.com/show.js?uri=" + uri + "", function(json) {
-   var urititle = json.title;
- });
-
-
-
-$(this).attr('title', "Visit " + uri + "");
+var url = $(this).attr("href");
 
 // want to trim http:// & www. from var
+
+var url = url.replace("http://", "");
+var url = url.replace("www.", "");
+
+
+$(this).attr('title', "Visit " + url + "");
+
+
 
 
 });
