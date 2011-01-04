@@ -13,8 +13,8 @@ $(document).ready(function () {
 ////////////////////////////////////
 
 // This will add rel="external" to all external links
-//comment out to add rel="external manually
-$('a[href^=http://]:not[href^=http://' + window.location.hostname + ']').attr('rel', 'external');
+//comment this line out to add rel="external" manually
+$("a[href^='http']").attr('rel','external');
 
 // for each rel=external link
 $('a[rel="external"]').each(function() {
