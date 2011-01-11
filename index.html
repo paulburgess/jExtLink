@@ -12,9 +12,16 @@
 $(document).ready(function () {
 ////////////////////////////////////
 
+// open external links in new windows?
+// y or n
+//var opennew = y;
+
+// our own domain
+var domain = window.location.hostname;
+
 // This will add rel="external" to all external links
 //comment this line out to add rel="external" manually
-$("a[href^='http']").attr('rel','external');
+$("a[href^='http:']").not("[href*='" + domain + "']").attr('rel','external');
 
 // for each rel=external link
 $('a[rel="external"]').each(function() {
@@ -45,6 +52,16 @@ $(this).attr('title', "Visit " + url + "");
 
 }); // end for each
 
+//new windows
+//if(opennew == y){
+
+$('a[rel="external"]').click(function(){
+window.open($(this).attr('href'));return false;
+});
+
+//}; // end if
+
+
 ////////////////////////////////////
 });
 </script>
@@ -70,7 +87,9 @@ a:hover {color:#F00}
 
 
 <p>Hey there where ya goin', not exactly knowin', who says you have to call just one place home. He's goin' everywhere, B.J. McKay and his best friend Bear. <a rel="external" href="http://wegraphics.net/">He just keeps on movin'</a>, ladies keep improvin', every day is better than the last. New dreams and better scenes, and best of all I don't pay property tax. Rollin' down to Dallas, who's providin' my palace, <a href="http://www.premiumpixels.com/">off to New Orleans or who knows where</a>. Places new and ladies, too, I'm B.J. McKay and this is my best friend Bear.</p>
+<p><a href="http://dl.dropbox.com/u/154803/jExtLink/index.html#link">Same domain link here</a>.</p>
 
+<p style="margin-top:100px"><a href="https://github.com/paulburgess/jExtLink">Source on Github</a></p>
 
 </body>
 </html>
